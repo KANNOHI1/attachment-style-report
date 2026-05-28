@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>愛着傾向診断結果報告書</title>
     <style>
-        @page {
-            size: A4;
-            margin: 16mm 14mm;
-            background-color: #f7f9fa;
-        }
-        
         *, *::before, *::after {
             box-sizing: border-box;
         }
@@ -18,39 +12,42 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans CJK JP', Meiryo, sans-serif;
             color: #2c3e50;
-            line-height: 1.7;
-            font-size: 10.5pt;
+            line-height: 1.8;
+            font-size: 16px;
             background-color: #f7f9fa;
             -webkit-text-size-adjust: 100%;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
+            padding: 12px;
         }
 
         /* ヘッダー・タイトル */
         .main-header {
             background-color: #2c3e50;
             color: #ffffff;
-            margin: -16mm -14mm 25px -14mm;
-            padding: 25px 20px;
+            margin: 0 0 16px 0;
+            padding: 28px 20px;
             text-align: center;
             border-bottom: 4px solid #1abc9c;
+            border-radius: 6px 6px 0 0;
         }
 
         .main-header h1 {
             margin: 0;
-            font-size: 18pt;
+            font-size: 22px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
 
         .main-header p {
-            margin: 5px 0 0 0;
-            font-size: 10pt;
+            margin: 10px 0 0 0;
+            font-size: 13px;
             color: #bdc3c7;
         }
 
@@ -58,38 +55,49 @@
         section {
             background-color: #ffffff;
             border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 20px 18px;
+            margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            page-break-inside: avoid;
         }
 
         h2 {
-            font-size: 13pt;
+            font-size: 19px;
             color: #2c3e50;
             margin-top: 0;
-            margin-bottom: 15px;
-            padding-left: 10px;
+            margin-bottom: 18px;
+            padding-left: 12px;
             border-left: 4px solid #1abc9c;
-            page-break-after: avoid;
+            line-height: 1.5;
         }
 
         p {
             margin-top: 0;
-            margin-bottom: 12px;
-            text-align: justify;
+            margin-bottom: 14px;
+            font-size: 16px;
+        }
+
+        /* 重要箇所の強調（本文中の strong） */
+        section p strong,
+        .summary-box p strong {
+            font-size: 17px;
+            background: linear-gradient(transparent 60%, #fff3a3 60%);
+            padding: 0 2px;
+            font-weight: 700;
+            color: #1a1a1a;
         }
 
         /* リストスタイル */
         ul {
-            margin: 0 0 15px 0;
-            padding-left: 20px;
+            margin: 0 0 16px 0;
+            padding-left: 22px;
         }
 
         li {
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             position: relative;
             list-style-type: none;
+            font-size: 15.5px;
+            line-height: 1.7;
         }
 
         li::before {
@@ -99,19 +107,20 @@
             display: inline-block;
             width: 1em;
             margin-left: -1em;
+            font-size: 1.2em;
         }
 
-        /* テーブルスタイル */
+        /* テーブルスタイル（スコア表）*/
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 10pt;
+            margin: 16px 0;
+            font-size: 15px;
         }
 
         th, td {
             border: 1px solid #e2e8f0;
-            padding: 10px 12px;
+            padding: 12px 8px;
             text-align: center;
         }
 
@@ -119,63 +128,138 @@
             background-color: #f1f5f9;
             color: #34495e;
             font-weight: 600;
+            font-size: 14px;
         }
 
         .table-left {
             text-align: left;
             font-weight: 600;
             background-color: #f1f5f9;
-            width: 25%;
+            width: 42%;
+            font-size: 14px;
+            padding: 12px 10px;
         }
 
-        /* スコア強調 */
+        /* スコア強調（重要数値）*/
         .high-score {
             color: #e74c3c;
-            font-weight: bold;
+            font-weight: 800;
             background-color: #fdf2f2;
+            font-size: 20px;
         }
 
         /* 比較用テーブル */
         .compare-table td {
             text-align: left;
             vertical-align: top;
+            font-size: 15px;
+            line-height: 1.7;
+            padding: 14px 10px;
         }
         .compare-header {
-            width: 10%;
+            width: 18%;
             font-weight: bold;
             text-align: center;
             vertical-align: middle;
             background-color: #edf2f7;
+            font-size: 16px;
         }
 
-        /* コールアウト・強調 */
+        /* コールアウト・強調（診断結果コメント）*/
         .highlight-box {
             background-color: #e8f8f5;
-            border: 1px solid #a3e4d7;
+            border-left: 4px solid #1abc9c;
             border-radius: 4px;
-            padding: 12px 15px;
-            margin: 15px 0;
-            font-size: 10pt;
+            padding: 16px;
+            margin: 18px 0 4px 0;
         }
 
+        .highlight-box .diagnostic-text {
+            font-size: 16px;
+            color: #1a3a36;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .highlight-box strong {
+            background: linear-gradient(transparent 60%, #fff3a3 60%);
+            font-weight: 700;
+            color: #1a1a1a;
+            padding: 0 2px;
+        }
+
+        /* 総合所見ボックス */
         .summary-box {
-            background-color: #eaeded;
-            border-top: 3px solid #7f8c8d;
-            border-radius: 0 0 4px 4px;
-            padding: 20px;
-            margin-top: 25px;
+            background-color: #f4f6f7;
+            border-top: 4px solid #7f8c8d;
+            border-radius: 6px;
+            padding: 22px 18px;
+            margin-top: 20px;
+            margin-bottom: 16px;
         }
 
         .summary-box h2 {
             border-left: 4px solid #7f8c8d;
         }
 
-        /* 診断結果専用 */
-        .diagnostic-text {
-            font-size: 10pt;
-            color: #566573;
-            line-height: 1.6;
-            margin-bottom: 0;
+        .summary-box p {
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        /* スマホ最適化（440px 以下）*/
+        @media (max-width: 440px) {
+            .container {
+                padding: 8px;
+            }
+            section,
+            .summary-box {
+                padding: 18px 14px;
+            }
+            .main-header h1 {
+                font-size: 20px;
+                letter-spacing: 0.5px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            th, td {
+                padding: 10px 4px;
+            }
+            .table-left {
+                padding: 10px 8px;
+                font-size: 13px;
+            }
+            .high-score {
+                font-size: 19px;
+            }
+        }
+
+        /* 印刷用（A4）*/
+        @media print {
+            @page {
+                size: A4;
+                margin: 16mm 14mm;
+            }
+            body {
+                font-size: 10.5pt;
+                background: #ffffff;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+            h2 {
+                page-break-after: avoid;
+            }
+            .high-score {
+                font-size: 12pt;
+            }
         }
     </style>
 </head>
