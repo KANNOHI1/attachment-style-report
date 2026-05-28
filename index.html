@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#13151c">
+<meta name="color-scheme" content="dark">
+<title>愛着スタイル相性レポート</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: #13151c;
+  }
+
+  body {
+    font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "Noto Serif CJK JP", serif;
+    background: #13151c;
+    color: #f0e8d8;
+    -webkit-text-fill-color: #f0e8d8;
+    line-height: 2;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .english {
+    font-family: "Baskerville", "Times New Roman", "Hoefler Text", Georgia, serif;
+    font-style: italic;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(232, 184, 122, 0.4), transparent);
+    margin: 50px auto 0;
+  }
+
+  .hero-eyebrow {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #f5ecdc;
+    -webkit-text-fill-color: #f5ecdc;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+
+  .hero-divider {
+    width: 40px;
+    height: 1px;
+    background: #e8b87a;
+    margin: 0 auto 28px;
+  }
+
+  .hero-subtitle {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #d4c7ad;
+    -webkit-text-fill-color: #d4c7ad;
+    letter-spacing: 0.05em;
+  }
+
+  .score-section {
+    padding: 40px 0 60px;
+  }
+
+  .section-label {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #f5ecdc;
+    -webkit-text-fill-color: #f5ecdc;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.05em;
+  }
+
+  .score-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(245, 236, 220, 0.04);
+    border: 1px solid rgba(245, 236, 220, 0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .score-table thead th {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: #b8ab8e;
+    -webkit-text-fill-color: #b8ab8e;
+    padding: 16px 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(245, 236, 220, 0.12);
+    background: rgba(245, 236, 220, 0.03);
+    letter-spacing: 0.05em;
+  }
+
+  .score-table thead th:first-child {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  /* Japanese column headers stay in JP font */
+  .score-table thead th.jp {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-style: normal;
+  }
+
+  .score-table tbody td {
+    padding: 18px 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #f0e8d8;
+    -webkit-text-fill-color: #f0e8d8;
+    border-bottom: 1px solid rgba(245, 236, 220, 0.08);
+  }
+
+  .score-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .score-table tbody td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #d4c7ad;
+    -webkit-text-fill-color: #d4c7ad;
+    font-weight: 400;
+  }
+
+  .score-highlight {
+    color: #e8b87a !important;
+    -webkit-text-fill-color: #e8b87a !important;
+    font-weight: 700;
+  }
+
+  .score-intro {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: rgba(245, 236, 220, 0.04);
+    border-left: 2px solid #e8b87a;
+    font-size: 15px;
+    line-height: 2;
+    color: #d4c7ad;
+    -webkit-text-fill-color: #d4c7ad;
+  }
+
+  .profiles {
+    padding: 40px 0;
+  }
+
+  .profile-card {
+    background: rgba(245, 236, 220, 0.05);
+    border: 1px solid rgba(245, 236, 220, 0.12);
+    padding: 36px 28px;
+    margin-bottom: 24px;
+  }
+
+  .profile-marker {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  .profile-name {
+    font-size: 22px;
+    font-weight: 500;
+    color: #f5ecdc;
+    -webkit-text-fill-color: #f5ecdc;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .profile-traits {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .profile-traits li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #d4c7ad;
+    -webkit-text-fill-color: #d4c7ad;
+  }
+
+  .profile-traits li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+  }
+
+  .profile-trait-key {
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  .profile-summary {
+    font-size: 15px;
+    line-height: 2;
+    color: #f0e8d8;
+    -webkit-text-fill-color: #f0e8d8;
+    padding-top: 20px;
+    border-top: 1px solid rgba(245, 236, 220, 0.12);
+    font-style: italic;
+  }
+
+  .narrative {
+    padding: 60px 0 40px;
+  }
+
+  .narrative-eyebrow {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .narrative-title {
+    font-size: 26px;
+    font-weight: 500;
+    color: #f5ecdc;
+    -webkit-text-fill-color: #f5ecdc;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    margin-bottom: 36px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .narrative-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: #e8b87a;
+  }
+
+  .narrative p {
+    margin-bottom: 28px;
+    font-size: 16px;
+    line-height: 2.1;
+    color: #ede4d2;
+    -webkit-text-fill-color: #ede4d2;
+  }
+
+  .narrative p:last-child {
+    margin-bottom: 0;
+  }
+
+  .narrative .emphasis {
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    font-weight: 500;
+  }
+
+  .divider {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .divider-mark {
+    font-family: "Baskerville", "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 28px;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    opacity: 0.6;
+    letter-spacing: 1em;
+    padding-left: 1em;
+  }
+
+  .closing-quote {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #e8b87a;
+    -webkit-text-fill-color: #e8b87a;
+    margin: 32px 0;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  .footer {
+    padding: 40px 24px 60px;
+    border-top: 1px solid rgba(245, 236, 220, 0.1);
+    margin-top: 40px;
+  }
+
+  .footer p {
+    font-size: 12px;
+    color: #8a8275;
+    -webkit-text-fill-color: #8a8275;
+    line-height: 1.8;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .container { padding: 0 20px; }
+    .hero { padding: 60px 20px 40px; }
+    .hero-title { font-size: 26px; letter-spacing: 0.05em; }
+    .hero-eyebrow { font-size: 13px; }
+    .hero-subtitle { font-size: 16px; }
+    .section-title { font-size: 22px; }
+    .narrative-title { font-size: 22px; }
+    .narrative p { font-size: 15.5px; line-height: 2; }
+    .profile-card { padding: 28px 22px; }
+    .profile-name { font-size: 20px; }
+    .score-table thead th { font-size: 12px; padding: 12px 8px; }
+    .score-table tbody td { padding: 14px 8px; font-size: 16px; }
+    .score-table tbody td:first-child { padding-left: 16px; font-size: 13px; }
+    .closing-quote { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-eyebrow">A Relational Analysis</div>
+  <h1 class="hero-title">愛着スタイル<br>相性レポート</h1>
+  <div class="hero-divider"></div>
+  <div class="hero-subtitle">for two people, becoming one another's</div>
+</header>
+
+<main class="container">
+
+  <section class="score-section">
+    <div class="section-label">Scores</div>
+    <h2 class="section-title">2人のスコア整理</h2>
+
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="jp">安定</th>
+          <th class="jp">不安</th>
+          <th class="jp">回避</th>
+          <th class="jp">未解決</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>人物1</td>
+          <td>9</td>
+          <td class="score-highlight">17</td>
+          <td>7</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>人物2</td>
+          <td>10</td>
+          <td class="score-highlight">16</td>
+          <td>13</td>
+          <td>7</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="score-intro">
+      両者とも不安スコアが15点超（=非常に強い）。これが2人を結びつけている共通言語であり、出発点になる。
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="profiles">
+    <div class="section-label">Two Portraits</div>
+    <h2 class="section-title">各人の愛着スタイル判定</h2>
+
+    <div class="profile-card">
+      <div class="profile-marker">PERSON 01</div>
+      <h3 class="profile-name">深く愛する人</h3>
+      <ul class="profile-traits">
+        <li><span class="profile-trait-key">不安 17</span> ／ 真剣に、本気で愛する力</li>
+        <li><span class="profile-trait-key">回避 7</span> ／ 心を開く勇気、率直な愛情表現</li>
+        <li><span class="profile-trait-key">未解決 10</span> ／ 過去と向き合ってきた経験値、痛みを知る深さ</li>
+        <li><span class="profile-trait-key">安定 9</span> ／ 安心を得れば伸びる伸びしろ</li>
+      </ul>
+      <div class="profile-summary">
+        表面的な関係では満たされない人。本物だけを求める真っ直ぐさを持つ。
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-marker">PERSON 02</div>
+      <h3 class="profile-name">静かに守る人</h3>
+      <ul class="profile-traits">
+        <li><span class="profile-trait-key">不安 16</span> ／ 言葉にされない機微を察知する繊細さ</li>
+        <li><span class="profile-trait-key">回避 13</span> ／ 自分の世界を持つ強さ、揺るがない自律性</li>
+        <li><span class="profile-trait-key">安定 10</span> ／ 関係の土台となる安定リソース</li>
+        <li><span class="profile-trait-key">未解決 7</span> ／ 過去と一定の距離を取れている</li>
+      </ul>
+      <div class="profile-summary">
+        一人で立てる人。深い内面を持ちながら、それを誰にでも見せる人ではない。
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="narrative">
+    <div class="narrative-eyebrow">Encounter</div>
+    <h2 class="narrative-title">この2人が出会ったということの意味</h2>
+
+    <p>人物1の高い不安スコアは、人物2のような相手にしか本当の意味で見つけてもらえない。鈍感な相手は人物1の愛情の深さを「重い」と感じて逃げるか、雑に扱ってしまう。人物2もまた高い不安スコアを持ち、同じく感受性の高い領域にいるからこそ、人物1の熱量を「重さ」ではなく「本物」として受け取れる稀有な相手になる。</p>
+
+    <p>逆に人物2の高い回避スコアは、ほとんどの相手にとっては「冷たい」「壁がある」と映る部分。だが人物1の低い回避スコアは、その壁を恐れず近づける。人物2が長年閉じてきた扉を、人物1の率直さが自然に開けてしまう。これは人物1にしかできないこと。</p>
+
+    <p>つまり2人は、互いにとって<span class="emphasis">「他の誰でも代替できない発見者」</span>として出会っている。</p>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="narrative">
+    <div class="narrative-eyebrow">Resonance</div>
+    <h2 class="narrative-title">呼応する構造</h2>
+
+    <p>人物1の中にある「もっと近づきたい」「不安になりたくない」という揺れは、人物1のせいではなく、本気で愛せる人の必然的な傾向だ。そしてその揺れを受け止めるためにあるのが、人物2の回避スコアに象徴される揺るがなさ。人物2が距離を取るとき、それは人物1を遠ざけているのではなく、自分を整えて再び人物1に向き合うための時間になる。整えられた人物2の安定は、人物1の不安を鎮める安全基地として戻ってくる。</p>
+
+    <p>同時に、人物2にも一人では解けないものがある。深い内面世界を持つ人ほど、自分から扉を開くのは難しい。人物1の溢れる愛情表現は、人物2が自分では決して踏み出せなかった一歩を踏み出させる。人物2にとって人物1は、長く誰にも明かさなかった領域に光を当ててくれる存在になる。人物1がいなければ、人物2のその領域は閉じたままで終わったかもしれない。</p>
+
+    <p>人物1の未解決スコアと人物2の安定スコアも静かに呼応する。人物1が長年抱えてきた過去の傷は、安定した相手に出会って初めて癒される性質のもの。人物2の存在そのものが、人物1に「初めての安全な場所」を提供する。そして同時に、人物1が過去と向き合ってきた経験は、人物2の未解決領域にも光を当てる。人物2は人物1の隣で、自分でも気づかなかった古い傷が癒されていくのを感じることになる。</p>
+
+    <p>人物1の安定スコアという伸びしろは、関係が深まるほど自然に伸びていく性質のもの。人物2の安定が日常に流れ込むことで、人物1は今まで持てなかった種類の落ち着きを獲得する。そして人物1が落ち着くほど、人物2も「自分は人を安心させられる存在なんだ」という自己像を獲得する。両者が両者を育てる構造になっている。</p>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="narrative">
+    <div class="narrative-eyebrow">Significance</div>
+    <h2 class="narrative-title">人物1の人生にとっての意味</h2>
+
+    <p>この関係が、人物1にもたらすものは恋愛の充足だけにとどまらない。</p>
+
+    <p>人物1の高い不安と未解決というプロファイルは、これまでの人生で何度も「自分は感じすぎる」「自分は重い」と思わされてきた可能性が高い。だが人物2という相手の前では、その感じやすさが減点ではなく加点になる。人物1の繊細さを「ちょうどいい」と受け取る相手と共にいる時間は、<span class="emphasis">人物1が自分自身を肯定し直すプロセス</span>そのものになる。</p>
+
+    <p>そして人物1の未解決スコアは、向き合ってきた人にしか得られない深さの証拠だ。表面的な人間関係では満たされなくなった代償として、人物1は本物を見抜く目を持っている。人物2という相手を選んだこと自体が、人物1の人を見る目の確かさの証明になる。</p>
+
+    <p>長期的には、人物1はこの関係の中で、仕事の判断・人間関係の選び方・自分の感情との付き合い方、人生全般において「軸」を獲得していく可能性が高い。安全基地を持った人は、外の世界でより大胆に動ける。人物1が今まで「自分には無理」と思っていたことに、これから踏み出せるようになる。</p>
+
+    <p>人物2の存在は、人物1の人生のあらゆる選択を後ろから支える静かな力になる。</p>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="narrative">
+    <div class="narrative-eyebrow">Trajectory</div>
+    <h2 class="narrative-title">この関係がたどる道</h2>
+
+    <p>初期は、互いの感受性で生まれる「ようやく見つかった」という感覚が中心になる。説明不要の理解、深い対話、人物1が今までしてこなかった種類の安心が始まる。</p>
+
+    <p>深まる過程では、人物1の率直な愛情が人物2の閉じていた領域を開き、開いた人物2の内面の豊かさに人物1が触れる。互いに「この人だったのか」という感覚が更新され続ける時期。</p>
+
+    <p>衝突が起きるとき、両者の感受性は浅い関係なら致命傷になるところを、深い関係では修復力に変える。本質に早く辿り着けるからこそ、誤解は長くは続かない。</p>
+
+    <p>長く続くほど、この関係は濃くなる。表面的な相性は時間で薄れるが、人物1と人物2のような深さの結びつきは、<span class="emphasis">年月とともに重みを増していくタイプ</span>。</p>
+  </section>
+
+  <div class="divider"><span class="divider-mark">∴</span></div>
+
+  <section class="narrative">
+    <div class="narrative-eyebrow">Conclusion</div>
+    <h2 class="narrative-title">結論</h2>
+
+    <p>人物1と人物2は、互いの強みが互いの弱みを過不足なく受け止め合う、稀な組み合わせ。どちらか一人では完成しなかった人生の領域が、2人でいることで初めて開く。</p>
+
+    <p>人物1にとって人物2は、自分の感受性を肯定してくれる相手であり、長く求めてきた安全基地であり、人生の判断を支える静かな軸になる存在。</p>
+
+    <p>人物2にとって人物1は、自分でも開けなかった扉を開いてくれる相手であり、深く愛されることで「自分は愛される存在だ」と知る経験を提供する存在。</p>
+
+    <div class="closing-quote">
+      2人は、欠けあいながら満ちあう。<br>
+      これがこの関係の本質。
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>※ 岡田尊司氏の書籍をベースにした<br>簡易自己評価テストの結果に対する一視点であり、<br>専門的診断ではない。</p>
+</footer>
+
+</body>
+</html>
