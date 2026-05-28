@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愛着傾向診断結果報告書</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm 14mm;
+            background-color: #f7f9fa;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            color: #2c3e50;
+            line-height: 1.7;
+            font-size: 10.5pt;
+            background-color: #f7f9fa;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ヘッダー・タイトル */
+        .main-header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            margin: -16mm -14mm 25px -14mm;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid #1abc9c;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 18pt;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .main-header p {
+            margin: 5px 0 0 0;
+            font-size: 10pt;
+            color: #bdc3c7;
+        }
+
+        /* セクション構造 */
+        section {
+            background-color: #ffffff;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            font-size: 13pt;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #1abc9c;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        /* リストスタイル */
+        ul {
+            margin: 0 0 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            position: relative;
+            list-style-type: none;
+        }
+
+        li::before {
+            content: "•";
+            color: #1abc9c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* テーブルスタイル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .table-left {
+            text-align: left;
+            font-weight: 600;
+            background-color: #f1f5f9;
+            width: 25%;
+        }
+
+        /* スコア強調 */
+        .high-score {
+            color: #e74c3c;
+            font-weight: bold;
+            background-color: #fdf2f2;
+        }
+
+        /* 比較用テーブル */
+        .compare-table td {
+            text-align: left;
+            vertical-align: top;
+        }
+        .compare-header {
+            width: 10%;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #edf2f7;
+        }
+
+        /* コールアウト・強調 */
+        .highlight-box {
+            background-color: #e8f8f5;
+            border: 1px solid #a3e4d7;
+            border-radius: 4px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        .summary-box {
+            background-color: #eaeded;
+            border-top: 3px solid #7f8c8d;
+            border-radius: 0 0 4px 4px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .summary-box h2 {
+            border-left: 4px solid #7f8c8d;
+        }
+
+        /* 診断結果専用 */
+        .diagnostic-text {
+            font-size: 10pt;
+            color: #566573;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="main-header">
+        <h1>愛着傾向診断 結果報告書</h1>
+        <p>二人の関係性を紐解き、より深い信頼を築くための分析</p>
+    </header>
+
+    <section>
+        <h2>1. 診断結果</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>愛着傾向</th>
+                    <th style="width: 35%;">A</th>
+                    <th style="width: 35%;">B</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="table-left">安定型愛着スコア</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td class="table-left">不安型愛着スコア</td>
+                    <td class="high-score">17</td>
+                    <td class="high-score">16</td>
+                </tr>
+                <tr>
+                    <td class="table-left">回避型愛着スコア</td>
+                    <td>7</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td class="table-left">未解決型愛着スコア</td>
+                    <td>10</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="highlight-box">
+            <p class="diagnostic-text">本診断では、最も高いスコアがその人の基本的な愛着傾向を示すとされています。A・Bともに最も高いのは<strong>不安型愛着スコア</strong>であり、二人とも「大切な人との心のつながり」を非常に重視するタイプと考えられます。</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Aの特徴</h2>
+        <p>Aは、不安型傾向が非常に強く、同時に未解決型の要素も持っています。</p>
+        <p>不安型という言葉は、単に「不安定」「重い」という意味ではありません。むしろAは、</p>
+        <ul>
+            <li>大切な相手との関係を軽く扱わない</li>
+            <li>好きな人には深く心を向ける</li>
+            <li>相手の言葉や態度を丁寧に受け取る</li>
+            <li>安心できる相手とは、温かく深いつながりを育てられる</li>
+            <li>関係の中で誠実さや変わらない優しさを大切にする</li>
+        </ul>
+        <p>という傾向を持つと考えられます。</p>
+        <p>また、未解決型の要素は、Aにとって「安心できること」「受け止めてもらえること」が特に大切であることを示しています。</p>
+        <p>Aは、誰にでも簡単に心を預ける人というより、信頼できる相手かどうかを大切にしながら、本当に安心できる人には深く心を開ける人と考えられます。</p>
+    </section>
+
+    <section>
+        <h2>3. Bの特徴</h2>
+        <p>Bも、不安型傾向が非常に強く、親密な相手との関係を大切にするタイプです。</p>
+        <p>Bは、</p>
+        <ul>
+            <li>相手のことを深く知りたい</li>
+            <li>大切な人には、自分なりにきちんと向き合いたい</li>
+            <li>相手を喜ばせたり、安心させたりすることに意味を感じる</li>
+            <li>特別な関係を、表面的なものとして扱わない</li>
+            <li>相手からも大切に思われていることを実感したい</li>
+        </ul>
+        <p>という傾向を持つと考えられます。</p>
+        <p>一方、Bは回避型傾向も比較的強いです。これは、親密さを避けたいというより、親密な関係の中でも、<strong>自分らしく自然にいられる余白を大切にする</strong>ことを示しています。</p>
+        <p>Bは、深くつながることと、互いの自由を尊重することの両方を大事にするタイプです。</p>
+    </section>
+
+    <section>
+        <h2>4. 二人の大きな共通点</h2>
+        <p>AとBは、二人とも不安型愛着スコアが非常に高いという強い共通点があります。この共通点は、二人がともに以下のような感覚を持ちやすいことを示しています。</p>
+        <ul>
+            <li>大切な相手を特別に思いやすい</li>
+            <li>相手のことを知ることに喜びを感じやすい</li>
+            <li>言葉や態度で安心を伝え合うことを大切にする</li>
+            <li>薄い付き合いより、心の通った関係を求めやすい</li>
+            <li>好きな相手とのつながりを、長く大切にしたい</li>
+        </ul>
+        <p>つまり二人は、<strong>相手を大切に思う気持ちの温度が極めて近い</strong>と言えます。</p>
+        <p>一方だけが強く求め、一方だけが軽く受け流す組み合わせではなく、二人とも「心がつながっていること」に大きな価値を感じやすい性質です。この点は、二人の関係における大きな相性の良さと考えられます。</p>
+    </section>
+
+    <section>
+        <h2>5. 二人の違い（補い合える部分）</h2>
+        <p>AとBは似ている一方で、安心を感じるために必要なものが少し異なります。</p>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th style="width: 15%;"></th>
+                    <th>安心しやすい関係の形</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="compare-header">A</td>
+                    <td>誠実さ、優しさ、否定されないこと、気持ちを受け止めてもらえること</td>
+                </tr>
+                <tr>
+                    <td class="compare-header">B</td>
+                    <td>深いつながり、相互理解、自然さ、互いの自由や余白が保たれること</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Aは、安心できる相手との関係の中で、より素直に自分を出しやすくなります。Bは、大切な相手とのつながりを感じながらも、無理なく自然に続けられる形であるほど、長く気持ちを保ちやすい傾向があります。</p>
+        <p>この違いは対立するものではありません。Aの求める安心は、Bが「大切な人に向き合いたい」という気持ちと合致しやすく、Bの求める自然な余白も、Aにとって「無理に形を決めつけず、安心して続けられる関係」へとつながり得ます。</p>
+    </section>
+
+    <section>
+        <h2>6. 二人の関係に期待できること</h2>
+        <p>AとBの組み合わせでは、次のような温かく深い関係が育ちやすいと考えられます。</p>
+        <ul>
+            <li>日常の小さな話にも意味を感じられる</li>
+            <li>相手の好きなものや考えていることを知るほど、親密さが増していく</li>
+            <li>言葉による肯定や気遣いが、相手に深く届きやすい</li>
+            <li>一緒にいる時間だけでなく、離れていてもつながりを感じやすい</li>
+            <li>互いを理解しようとすること自体が、関係の喜びになりやすい</li>
+            <li>表面的ではなく、時間をかけて深い信頼を築きやすい</li>
+        </ul>
+        <p>二人とも、誰かを特別に思う気持ちを簡単には扱わないタイプであるため、関係が深まるほど、互いにとって大きな安心や喜びになり得ます。</p>
+    </section>
+
+    <section>
+        <h2>7. 関係をより心地よくするために</h2>
+        <p>二人の関係で大切なのは、難しい工夫ではなく、次のような日常の小さな積み重ねです。</p>
+        <ul>
+            <li>嬉しい時は、嬉しいと伝える</li>
+            <li>安心した時は、安心したと伝える</li>
+            <li>相手の好きなものや大切にしていることを、尊重して楽しむ</li>
+            <li>不安を感じた時には、決めつけるより言葉で確かめる</li>
+            <li>近さだけでなく、自然に続けられる心地よさも大切にする</li>
+        </ul>
+        <p>Aにとっては「関係の中で安心できること」、Bにとっては「関係が自然で無理なく続いていくこと」が大切です。その両方を尊重し合えれば、互いを苦しくさせることなく、日常を少しずつ明るくしながら深くつながっていけるでしょう。</p>
+    </section>
+
+    <section class="summary-box">
+        <h2>総合所見</h2>
+        <p>本診断は、二人の相性そのものを直接判定するものではありません。しかし、AとBの結果からは、<strong>大切な人との心のつながりを重視する感覚が非常に近い</strong>ことが明確に読み取れます。</p>
+        <p>Aは、安心できる相手には深く心を開き、温かいつながりを育てられる人。Bは、大切な相手を深く知り、自然な形で長く大事にしていきたい人。</p>
+        <p>二人は、それぞれに必要とする安心の形にわずかな違いはあるものの、<strong>「相手を大切に思う気持ちの強さ」「関係を丁寧に育てたい感覚」「言葉による安心を大切にする点」</strong>において、非常に相性の良い組み合わせと考えられます。</p>
+        <p>二人の関係は、無理に何かを急ぐことよりも、相手を知り、受け止め、嬉しい気持ちを伝え合う時間の中で、自然に深くなっていく性質を持っています。</p>
+    </section>
+
+</div>
+
+</body>
+</html>
